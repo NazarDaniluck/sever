@@ -1,0 +1,60 @@
+# =============================================================================
+#  systemd-юнит для «Севера» (Debian/Ubuntu)
+#  Автозапуск вместе с Debian:  sudo systemctl enable --now sever
+#
+#  Установка (один раз):
+#    1) В каталоге /home/seversocialnetwork/Sever выполнить:
+#           sudo chmod +x deploy/sever.sh
+#           deploy/sever.sh install          # node_modules + сборка client/dist
+#
+#    2) Установить юнит:
+#           sudo cp deploy/sever.service /etc/systemd/system/sever.service
+#           sudo systemctl daemon-reload
+#           sudo systemctl enable --now sever   # включит автозапуск и стартует
+#           sudo systemctl status sever
+#
+#    3) Управление и логи:
+#           sudo systemctl restart sever
+#           journalctl -u sever -f             # или tail -f server/sever.log
+#
+#  Сервис работает от пользователя seversocialnetwork, поэтому имеет полный
+#  доступ к своей папке (server/data, server/uploads, логи, pid).
+#
+#  Сервер слушает только 127.0.0.1:4000 — отдавайте его наружу через
+#  nginx/caddy (reverse proxy) или туннель (cloudflared). CORS-источники
+#  задаются в server/.env (CLIENT_ORIGIN), несколько через запятую.
+# =============================================================================
+
+[Unit]
+Description=Социальная сеть «Север» (Node.js + SQLite + Socket.IO)
+After=network.target
+
+[Service]
+Type=forking
+User=seversocialnetwork
+Group=seversocialnetwork
+
+# Настройки приложения берутся из .env (PORT, JWT_SECRET, CLIENT_ORIGIN).
+# Знак "-" перед путём = файл может отсутствовать — не страшно.
+EnvironmentFile=-/home/seversocialnetwork/Sever/server/.env
+
+# Скрипт сам переходит в server/, подхватывает .env и пишет pid-файл.
+ExecStart=/home/seversocialnetwork/Sever/deploy/sever.sh start
+ExecStop=/home/seversocialnetwork/Sever/deploy/sever.sh stop
+ExecReload=/home/seversocialnetwork/Sever/deploy/sever.sh restart
+PIDFile=/home/seversocialnetwork/Sever/server/sever.pid
+
+# Перезапуск при сбое, но не чаще 5 раз за 10 минут
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+# Приличные лимиты для веб-приложения
+NoNewPrivileges=true
+ProtectSystem=full
+ReadWritePaths=/home/seversocialnetwork/Sever/server /home/seversocialnetwork/Sever/client
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

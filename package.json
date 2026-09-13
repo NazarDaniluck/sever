@@ -1,0 +1,19 @@
+{
+  "name": "sever-social",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Социальная сеть «Север» — фид, сообщества, подписки, личные сообщения",
+  "scripts": {
+    "setup": "npm run setup:server && npm run setup:client",
+    "setup:server": "npm --prefix server install",
+    "setup:client": "npm --prefix client install",
+    "db": "node server/src/seed.js",
+    "db:reset": "node server/src/seed.js",
+    "dev": "concurrently -n server,client -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
