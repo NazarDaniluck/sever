@@ -10,9 +10,9 @@
 
 ## About the Project
 
-Sever is an attempt to build a social network—one that happened almost by accident.
+Sever is an attempt to build a social network-one that happened almost by accident.
 
-The project was written **not by a human**, but by the aforementioned neural network, under my guidance—using prompts, option selection, and testing. I DID NOT WRITE ANY CODE, AND I AM NOT A PROGRAMMER!
+The project was written **not by a human**, but by the aforementioned neural network, under my guidance-using prompts, option selection, and testing. I DID NOT WRITE ANY CODE, AND I AM NOT A PROGRAMMER!
 
 The goal was to see if it is possible to write a functional social network entirely using a neural network, starting with nothing but the project idea.
 
