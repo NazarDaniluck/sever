@@ -43,7 +43,7 @@ The project is **archived from the start** and WILL NOT BE UPDATED.
 <div align="center">
 
 <img src="images/img1.png" alt="Interface" width="960" />
-> Creator of the artwork for the avatar and profile banner: "Bruce Bronze"
+Creator of the artwork for the avatar and profile banner: "Bruce Bronze"
 
 **_ENGLISH AI TRANSLATION OF README_**
 
