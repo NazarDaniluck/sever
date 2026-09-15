@@ -28,7 +28,7 @@ Although the project includes some user security features (such as 2FA), securit
 
 The project is **archived from the start** and WILL NOT BE UPDATED.
 
-(The `deploy` folder contains files for running it on a Debian server.)
+(The deploy folder contains files for running it on a Debian server.)
 
 </div>
 
@@ -43,5 +43,8 @@ The project is **archived from the start** and WILL NOT BE UPDATED.
 <div align="center">
 
 <img src="images/img1.png" alt="Interface" width="960" />
+> Creator of the artwork for the avatar and profile banner: "Bruce Bronze"
+
+**_ENGLISH AI TRANSLATION OF README_**
 
 </div>
