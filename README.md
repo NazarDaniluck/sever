@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="client/public/sever-logo.png" alt="Север" width="120" />
+<img src="sever-logo.png" alt="Север" width="120" />
 
 **Экспериментальная социальная сеть сделанная полностью нейросетью (deepseek v4 flash)**
 
@@ -37,5 +37,11 @@
 ## Стек таков:
 
 **React (Vite)** · **Node/Express** · **SQLite** · **WebSocket** · **2FA (TOTP)**
+
+</div>
+
+<div align="center">
+
+<img src="images/img1.png" alt="Интерфейс" width="960" />
 
 </div>
