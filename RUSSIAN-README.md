@@ -40,8 +40,11 @@
 
 </div>
 
+</div>
+
 <div align="center">
 
-<img src="images/img1.png" alt="Интерфейс" width="960" />
+<img src="images/img1.png" alt="Interface" width="960" />
+> Автор рисунков на аватарке и шапке профиля "Bruce Bronze"
 
 </div>
